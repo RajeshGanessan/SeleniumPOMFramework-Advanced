@@ -1,4 +1,4 @@
-package com.raj.constants;
+package com.framework.constants;
 
 public class AppConstants {
 
