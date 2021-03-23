@@ -1,18 +1,20 @@
 package com.framework.tests;
 
-import com.framework.driver.DriverFactory;
+import com.framework.driver.Driver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+
+import java.io.IOException;
 
 public class baseTest {
 
     @BeforeMethod
-    public void setUp(){
-        DriverFactory.initDriver();
+    protected void setUp() throws Exception {
+        Driver.initDriver();
     }
 
     @AfterMethod
-    public void tearDown(){
-        DriverFactory.tearDown();
+    protected void tearDown(){
+        Driver.tearDown();
     }
 }

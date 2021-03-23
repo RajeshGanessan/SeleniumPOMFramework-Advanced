@@ -1,6 +1,6 @@
 package com.framework;
 
-public class ThreadLocalDemo {
+public class   ThreadLocalDemo {
 
     private static ThreadLocal<String> atm = new ThreadLocal<>();
 
