@@ -3,8 +3,9 @@
 <suite name="All Test Suite">
     <test name="SeleniumAdvanceFramework" parallel="methods" thread-count="2">
         <classes>
-            <class name="com.framework.tests.LoginTest"/>
-            <class name="com.framework.tests.HomePageTest"/>
+<!--            <class name="com.framework.tests.LoginTest"/>-->
+<!--            <class name="com.framework.tests.HomePageTest"/>-->
+            <class name="com.framework.tests.OrangeHRMTest"/>
         </classes>
     </test>
 </suite>

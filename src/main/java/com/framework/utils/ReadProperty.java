@@ -21,11 +21,14 @@ public final class ReadProperty {
         }
     }
     public static String get(String key) {
-
-        String value =  property.getProperty(key);
-        if(Objects.isNull(value)){
+        if(Objects.isNull(property.getProperty(key)) || Objects.isNull(key)){
             throw new IllegalArgumentException("Property name = " + key + " is not found. Please check config.properties");
         }
-        return value;
+        return property.getProperty(key);
     }
 }
+
+
+
+
+
