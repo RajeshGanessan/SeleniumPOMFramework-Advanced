@@ -21,7 +21,7 @@ public class OrangeHRMLoginPage extends BasePage{
     }
 
     public OrangeHRMHomePage clickLogin(){
-        click(login_button);
+        click(login_button,"click");
         return new OrangeHRMHomePage();
     }
 

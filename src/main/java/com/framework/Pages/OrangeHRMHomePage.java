@@ -13,13 +13,13 @@ public class OrangeHRMHomePage extends BasePage {
     private final By logoutBtn = By.xpath("//a[text()='Logout']");
 
     public OrangeHRMHomePage clickWelcome(){
-        click(user_dropdown);
+        click(user_dropdown,"click");
         return this;
     }
 
     public OrangeHRMHomePage doLogout(){
         Uninterruptibles.sleepUninterruptibly(2, TimeUnit.SECONDS);
-        click(logoutBtn);
+        click(logoutBtn,"click";
         return this;
     }
 
