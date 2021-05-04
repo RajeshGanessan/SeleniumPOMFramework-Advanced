@@ -1,5 +1,6 @@
 package com.framework.driver;
 
+import com.framework.enums.ConfigProperties;
 import com.framework.utils.ReadProperty;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +18,7 @@ public class Driver {
         if(Objects.isNull(DriverManager.getDriver())) {
             WebDriverManager.chromedriver().setup();
             DriverManager.setDriver(new ChromeDriver());
-            DriverManager.getDriver().get(ReadProperty.get("url"));
+            DriverManager.getDriver().get(ReadProperty.get(ConfigProperties.URL));
         }
     }
 

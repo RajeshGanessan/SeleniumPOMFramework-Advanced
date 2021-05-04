@@ -1,6 +1,7 @@
 package com.framework.Pages;
 
 import com.framework.driver.DriverManager;
+import com.framework.enums.WaitStrategy;
 import org.openqa.selenium.By;
 
 public class OrangeHRMLoginPage extends BasePage{
@@ -21,7 +22,7 @@ public class OrangeHRMLoginPage extends BasePage{
     }
 
     public OrangeHRMHomePage clickLogin(){
-        click(login_button,"click");
+        click(login_button, WaitStrategy.CLICKABLE);
         return new OrangeHRMHomePage();
     }
 

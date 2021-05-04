@@ -1,4 +1,4 @@
-package com.framework.tests;
+package sampleTests;
 
 import org.apache.poi.ss.usermodel.Sheet;
 import java.io.File;

@@ -1,5 +1,7 @@
 package com.framework.utils;
 
+import com.framework.enums.ConfigProperties;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Objects;
@@ -20,11 +22,11 @@ public final class ReadProperty {
             e.printStackTrace();
         }
     }
-    public static String get(String key) {
-        if(Objects.isNull(property.getProperty(key)) || Objects.isNull(key)){
+    public static String get(ConfigProperties key) {
+        if(Objects.isNull(property.getProperty(String.valueOf(key).toLowerCase()))){
             throw new IllegalArgumentException("Property name = " + key + " is not found. Please check config.properties");
         }
-        return property.getProperty(key);
+        return property.getProperty(String.valueOf(key).toLowerCase());
     }
 }
 

@@ -3,16 +3,17 @@ package com.framework.Pages;
 import com.framework.constants.AppConstants;
 import com.framework.driver.Driver;
 import com.framework.driver.DriverManager;
+import com.framework.enums.WaitStrategy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 
-    protected void click(By by,String waitStrategy){
-        if(waitStrategy.equalsIgnoreCase("click")) {
+    protected void click(By by, WaitStrategy waitStrategy){
+        if(waitStrategy == WaitStrategy.CLICKABLE) {
             waitTillElementClickable(by);
-        } else if(waitStrategy.equalsIgnoreCase("presence")){
+        } else if(waitStrategy == WaitStrategy.PRESENCE){
             waitTillElementPresence(by);
         }
         DriverManager.getDriver().findElement(by).click();
