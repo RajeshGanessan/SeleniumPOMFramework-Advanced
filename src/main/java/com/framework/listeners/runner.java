@@ -1,5 +1,6 @@
 package com.framework.listeners;
 
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class runner {
@@ -32,6 +33,8 @@ public class runner {
     @Test
     public void test2(){
         System.out.println("test - 2 ");
+        Assert.assertTrue(false);
+
     }
 
     @Test
