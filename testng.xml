@@ -3,6 +3,7 @@
 <suite name="All Test Suite" data-provider-thread-count="2">
     <listeners>
         <listener class-name="com.framework.listeners.ListenerClass"/>
+        <listener class-name="com.framework.listeners.AnnotationTransformer"/>
         <listener class-name="com.framework.listeners.MethodInterceptor"/>
     </listeners>
     <test name="SeleniumAdvanceFramework" parallel="methods" thread-count="1" >
