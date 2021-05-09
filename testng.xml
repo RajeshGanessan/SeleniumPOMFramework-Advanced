@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="SeleniumAdvanceFramework">
+<suite name="All Test Suite" data-provider-thread-count="2">
+    <listeners>
+<!--        <listener class-name="com.framework.listeners.ListenerClass"/>-->
+        <listener class-name="com.framework.listeners.AnnotationTransformer"/>
+<!--        <listener class-name="com.framework.listeners.MethodInterceptor"/>-->
+    </listeners>
+    <test name="SeleniumAdvanceFramework" parallel="methods" thread-count="1" >
         <classes>
-            <class name="com.raj.tests.loginTest">
-            </class>
+<!--            <class name="com.framework.listeners.runner"/>-->
+<!--            <class name="com.framework.tests.LoginTest"/>-->
+<!--            <class name="com.framework.tests.HomePageTest"/>-->
+            <class name="com.framework.tests.OrangeHRMTest"/>
         </classes>
     </test>
 </suite>
