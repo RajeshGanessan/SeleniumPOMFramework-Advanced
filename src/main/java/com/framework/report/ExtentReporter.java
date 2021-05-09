@@ -4,6 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.framework.constants.AppConstants;
 import org.testng.annotations.Test;
 
 import java.awt.*;
@@ -19,7 +20,7 @@ public class ExtentReporter  {
     public static void initReports(){
         if(Objects.isNull(extent)){
              extent = new ExtentReports();
-            ExtentSparkReporter spark = new ExtentSparkReporter("index.html");
+            ExtentSparkReporter spark = new ExtentSparkReporter(AppConstants.getEXTENTREPORTPATH());
             extent.attachReporter(spark);
 
             spark.config().setTheme(Theme.STANDARD);
@@ -31,7 +32,7 @@ public class ExtentReporter  {
     public static void flushReports() throws IOException {
         if(Objects.nonNull(extent)){
             extent.flush();
-            Desktop.getDesktop().browse(new File("index.html").toURI());
+            Desktop.getDesktop().browse(new File(AppConstants.getEXTENTREPORTPATH()).toURI());
         }
     }
 

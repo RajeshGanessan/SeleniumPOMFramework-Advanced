@@ -4,6 +4,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.framework.driver.Driver;
 import com.framework.driver.DriverManager;
 import com.framework.enums.WaitStrategy;
+import com.framework.report.ExtentLogger;
 import com.framework.report.ExtentManager;
 import com.framework.report.ExtentReporter;
 import com.google.common.util.concurrent.Uninterruptibles;
@@ -17,15 +18,13 @@ public class OrangeHRMHomePage extends BasePage {
     private final By logoutBtn = By.xpath("//a[text()='Logout']");
 
     public OrangeHRMHomePage clickWelcome(){
-        ExtentManager.getTest().pass("Welcome Clicked");
-        click(user_dropdown, WaitStrategy.CLICKABLE);
+        click(user_dropdown, WaitStrategy.CLICKABLE,"welcome ");
         return this;
     }
 
     public OrangeHRMHomePage doLogout(){
         Uninterruptibles.sleepUninterruptibly(2, TimeUnit.SECONDS);
-        click(logoutBtn,WaitStrategy.CLICKABLE);
-        ExtentManager.getTest().pass("Logout Clicked");
+        click(logoutBtn,WaitStrategy.CLICKABLE,"Logout");
         return this;
     }
 

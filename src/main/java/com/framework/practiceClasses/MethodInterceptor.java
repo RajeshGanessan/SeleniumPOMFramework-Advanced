@@ -1,4 +1,4 @@
-package com.framework.listeners;
+package com.framework.practiceClasses;
 
 import org.testng.IMethodInstance;
 import org.testng.IMethodInterceptor;

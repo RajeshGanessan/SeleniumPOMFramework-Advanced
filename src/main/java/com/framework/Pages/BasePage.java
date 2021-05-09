@@ -4,25 +4,28 @@ import com.framework.constants.AppConstants;
 import com.framework.driver.Driver;
 import com.framework.driver.DriverManager;
 import com.framework.enums.WaitStrategy;
+import com.framework.report.ExtentLogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 
-    protected void click(By by, WaitStrategy waitStrategy){
+    protected void click(By by, WaitStrategy waitStrategy,String elementName){
         if(waitStrategy == WaitStrategy.CLICKABLE) {
             waitTillElementClickable(by);
         } else if(waitStrategy == WaitStrategy.PRESENCE){
             waitTillElementPresence(by);
         }
         DriverManager.getDriver().findElement(by).click();
+        ExtentLogger.pass(elementName + " is clicked!");
 
     }
 
-    protected void sendKeys(By by,String value){
+    protected void sendKeys(By by,String value,String elementName){
 
         DriverManager.getDriver().findElement(by).sendKeys(value);
+        ExtentLogger.pass(value + " is entered successfully on " + elementName,true);
     }
 
     protected String getPageTitle(){

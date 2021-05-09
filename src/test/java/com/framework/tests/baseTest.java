@@ -11,15 +11,6 @@ import java.io.IOException;
 
 public class baseTest {
 
-    @BeforeSuite
-    public void beforeSuite(){
-        ExtentReporter.initReports();
-    }
-
-    @AfterSuite
-    public void afterSuite() throws IOException {
-        ExtentReporter.flushReports();
-    }
 
     @BeforeMethod
     protected void setUp() throws Exception {

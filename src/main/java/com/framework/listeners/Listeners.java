@@ -1,55 +1,61 @@
 package com.framework.listeners;
 
+import com.framework.report.ExtentLogger;
+import com.framework.report.ExtentReporter;
 import org.testng.*;
 
-public class ListenerClass implements ITestListener, ISuiteListener {
+import java.io.IOException;
+import java.lang.reflect.Method;
+
+public class Listeners implements ITestListener, ISuiteListener {
+
     @Override
     public void onStart(ISuite suite) {
-        System.out.println("Before suite in listener");
+        ExtentReporter.initReports();
     }
 
     @Override
     public void onFinish(ISuite suite) {
-        System.out.println("After suite in listener");
+        try {
+            ExtentReporter.flushReports();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void onTestStart(ITestResult result) {
-        System.out.println("Before method in listener");
+        ExtentReporter.createTest(result.getMethod().getMethodName());
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        System.out.println("after method  in listener");
+        ExtentLogger.pass(result.getMethod().getMethodName() + "PASSED !!",true);
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        System.out.println("after method in listener :Failure");
+        ExtentLogger.fail(result.getMethod().getMethodName() + "FAILED !!");
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        System.out.println("after method in listener : Skipped ");
+        ExtentLogger.skip(result.getMethod().getMethodName() + "SKIPPED !!");
     }
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-        ITestListener.super.onTestFailedButWithinSuccessPercentage(result);
     }
 
     @Override
     public void onTestFailedWithTimeout(ITestResult result) {
-        ITestListener.super.onTestFailedWithTimeout(result);
     }
 
     @Override
     public void onStart(ITestContext context) {
-        System.out.println("Before suite in listener");
     }
 
     @Override
     public void onFinish(ITestContext context) {
-        System.out.println("Before suite in listener");
     }
 }
