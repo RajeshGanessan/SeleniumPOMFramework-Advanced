@@ -6,15 +6,15 @@
   </listeners>
   <test thread-count="5" parallel="methods" name="SeleniumAdvanceFramework(failed)">
     <classes>
-      <class name="com.framework.listeners.runner">
+      <class name="com.framework.tests.OrangeHRMTest">
         <methods>
-          <include name="test2"/>
-          <include name="tearDownSuite"/>
           <include name="tearDown"/>
-          <include name="setUpSuite"/>
+          <include name="beforeSuite"/>
+          <include name="loginTest" invocation-numbers="0"/>
+          <include name="afterSuite"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.framework.listeners.runner -->
+      </class> <!-- com.framework.tests.OrangeHRMTest -->
     </classes>
   </test> <!-- SeleniumAdvanceFramework(failed) -->
 </suite> <!-- Failed suite [All Test Suite] -->

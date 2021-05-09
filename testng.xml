@@ -8,10 +8,10 @@
     </listeners>
     <test name="SeleniumAdvanceFramework" parallel="methods" thread-count="1" >
         <classes>
-            <class name="com.framework.listeners.runner"/>
+<!--            <class name="com.framework.listeners.runner"/>-->
 <!--            <class name="com.framework.tests.LoginTest"/>-->
 <!--            <class name="com.framework.tests.HomePageTest"/>-->
-<!--            <class name="com.framework.tests.OrangeHRMTest"/>-->
+            <class name="com.framework.tests.OrangeHRMTest"/>
         </classes>
     </test>
 </suite>
