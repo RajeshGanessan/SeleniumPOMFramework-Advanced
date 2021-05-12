@@ -9,6 +9,8 @@ public class AppConstants {
     private static final int EXPLICITWAITTIMEOUT  = 10;
     private static final String EXTENTREPORTFOLDERPATH = System.getProperty("user.dir") + "/extent-test-output/";
     private static  String extentreportfilepath ="";
+    private static String TESTCONFIGPATH = System.getProperty("user.dir") + "/src/main/java/com/framework/TestData/testConfig.xlsx";
+
 
     public static String getEXTENTREPORTPATH() {
         if(extentreportfilepath.isEmpty()){
@@ -27,6 +29,10 @@ public class AppConstants {
 
     public static String getCHROMEDRIVERPATH() {
         return CHROMEDRIVERPATH;
+    }
+
+    public static String getTESTCONFIGPATH(){
+        return TESTCONFIGPATH;
     }
 
     public static int getExplicitWaitTimeout(){

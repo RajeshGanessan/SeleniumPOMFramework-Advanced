@@ -5,7 +5,6 @@ import com.framework.report.ExtentReporter;
 import org.testng.*;
 
 import java.io.IOException;
-import java.lang.reflect.Method;
 
 public class Listeners implements ITestListener, ISuiteListener {
 
@@ -35,7 +34,8 @@ public class Listeners implements ITestListener, ISuiteListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        ExtentLogger.fail(result.getMethod().getMethodName() + "FAILED !!");
+        ExtentLogger.fail(result.getMethod().getMethodName() + "FAILED !!",true);
+        ExtentLogger.fail(result.getThrowable().toString());
     }
 
     @Override
@@ -45,17 +45,29 @@ public class Listeners implements ITestListener, ISuiteListener {
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+        /*
+        * For now not using this.
+        * */
     }
 
     @Override
     public void onTestFailedWithTimeout(ITestResult result) {
+        /*
+         * For now not using this.
+         * */
     }
 
     @Override
     public void onStart(ITestContext context) {
+        /*
+         * For now not using this.
+         * */
     }
 
     @Override
     public void onFinish(ITestContext context) {
+        /*
+         * For now not using this.
+         * */
     }
 }

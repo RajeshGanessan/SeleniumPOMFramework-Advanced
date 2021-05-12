@@ -12,7 +12,7 @@ public class ExtentManager {
         extTest.set(test);
     }
 
-    static ExtentTest getTest(){
+     static ExtentTest getTest(){
         return extTest.get();
     }
 

@@ -25,12 +25,25 @@ public class OrangeHRMTest extends baseTest {
 
     }
 
+    @Test(dataProvider = "LoginTestData")
+    public void logoutTest(String userName,String password){
+        OrangeHRMLoginPage ohlp = new OrangeHRMLoginPage();
+        OrangeHRMHomePage ohhp = ohlp.enterUserName(userName).enterPassword(password).clickLogin();
+        String title =  ohhp.clickWelcome().doLogout().getTitle();
+
+        Assertions.assertThat(title)
+                .isEqualTo("OrangeHRM");
+
+    }
+
+
+
     @DataProvider(name="LoginTestData" ,parallel = true)
     public Object[][] getData(){
 
         return new Object[][]{
                 {"Admin","admin123"},
-                {"Admin","admin123"},
+//                {"Admin","Admin123"},
 //                {"admin","admin12"}
         };
     }
