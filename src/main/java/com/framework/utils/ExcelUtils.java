@@ -15,13 +15,13 @@ import java.util.Map;
 
 public class ExcelUtils {
 
-    public static List<Map<String,String>> getTestDetails()  {
+    public static List<Map<String,String>> getTestDetails(String sheetName)  {
         FileInputStream fs = null;
         List<Map<String,String>> details =null;
         try {
             fs = new FileInputStream(AppConstants.getTESTCONFIGPATH());
             XSSFWorkbook workbook = new XSSFWorkbook(fs);
-            XSSFSheet sheet = workbook.getSheet("Login");
+            XSSFSheet sheet = workbook.getSheet(sheetName);
 
             int rowCount = sheet.getLastRowNum();
             int columnCount = sheet.getRow(0).getLastCellNum();
