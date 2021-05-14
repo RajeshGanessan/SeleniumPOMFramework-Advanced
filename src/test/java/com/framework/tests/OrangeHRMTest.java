@@ -18,7 +18,7 @@ public class OrangeHRMTest extends baseTest {
 
     }
 
-    @Test(dataProvider = "getData", dataProviderClass = DataProviderUtils.class,retryAnalyzer = RetryFailedTests.class)
+    @Test
     public void loginTest(Map<String,String> data){
         OrangeHRMLoginPage ohlp = new OrangeHRMLoginPage();
         System.out.println(data.get("username") + " | " + data.get("password"));
@@ -30,7 +30,7 @@ public class OrangeHRMTest extends baseTest {
 
     }
 
-    @Test(dataProvider = "getData",dataProviderClass = DataProviderUtils.class,retryAnalyzer = RetryFailedTests.class)
+    @Test
     public void newTest(Map<String,String> data){
         OrangeHRMLoginPage ohlp = new OrangeHRMLoginPage();
         OrangeHRMHomePage ohhp = ohlp.enterUserName(data.get("username")).enterPassword(data.get("password")).clickLogin();

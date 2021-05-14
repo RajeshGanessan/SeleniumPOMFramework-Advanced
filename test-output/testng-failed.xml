@@ -3,11 +3,13 @@
 <suite data-provider-thread-count="2" name="Failed suite [All Test Suite]" guice-stage="DEVELOPMENT">
   <listeners>
     <listener class-name="com.framework.listeners.Listeners"/>
+    <listener class-name="com.framework.listeners.AnnotationTransformer"/>
   </listeners>
   <test thread-count="5" parallel="methods" name="SeleniumAdvanceFramework(failed)">
     <classes>
       <class name="com.framework.tests.OrangeHRMTest">
         <methods>
+          <include name="newTest" invocation-numbers="0 0"/>
           <include name="tearDown"/>
           <include name="loginTest" invocation-numbers="1 1"/>
           <include name="setUp"/>

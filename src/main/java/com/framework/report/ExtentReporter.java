@@ -30,10 +30,12 @@ public class ExtentReporter  {
     }
 
     public static void flushReports() throws IOException {
-        if(Objects.nonNull(extent)){
+        if(Objects.nonNull(extent)) {
             extent.flush();
-            Desktop.getDesktop().browse(new File(AppConstants.getEXTENTREPORTPATH()).toURI());
         }
+            ExtentManager.unload();
+            Desktop.getDesktop().browse(new File(AppConstants.getEXTENTREPORTPATH()).toURI());
+
     }
 
     public static void createTest(String testcaseName){

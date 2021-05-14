@@ -5,6 +5,7 @@
 <!--        <listener class-name="com.framework.practiceClasses.ListenerClass"/>-->
 <!--        <listener class-name="com.framework.practiceClasses.AnnotationTransformer"/>-->
             <listener class-name="com.framework.listeners.Listeners"/>
+            <listener class-name="com.framework.listeners.AnnotationTransformer"/>
 <!--            <listener class-name="com.framework.listeners.methodInterceptor"/>-->
 <!--        <listener class-name="com.framework.practiceClinAdasses.MethodInterceptor"/>-->
     </listeners>
