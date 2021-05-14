@@ -9,21 +9,25 @@ import java.util.Map;
 
 public final class DataProviderUtils {
 
+    private static List<Map<String,String>> list = new ArrayList<>();
+
     @DataProvider
     public static Object[] getData(Method m){
         String methodName = m.getName();
-        List<Map<String,String>> dataMap = ExcelUtils.getTestDetails("Data");
-
+        if(list.isEmpty()){
+            list = ExcelUtils.getTestDetails("Data");
+        }
         List<Map<String,String>> filteredTests = new ArrayList<>();
 
-        for(int i=0;i<dataMap.size();i++){
+        for(int i=0;i<list.size();i++){
 
-            if(dataMap.get(i).get("testname").equalsIgnoreCase(methodName)){
-                if(dataMap.get(i).get("execute").equalsIgnoreCase("yes")){
-                    filteredTests.add(dataMap.get(i));
+            if(list.get(i).get("testname").equalsIgnoreCase(methodName)){
+                if(list.get(i).get("execute").equalsIgnoreCase("yes")){
+                    filteredTests.add(list.get(i));
                 }
             }
         }
+        list.removeAll(filteredTests);
         return filteredTests.toArray();
     }
 }

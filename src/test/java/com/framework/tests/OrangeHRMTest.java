@@ -17,27 +17,41 @@ public class OrangeHRMTest extends baseTest {
 
     }
 
-    @Test(dataProvider = "getData", dataProviderClass = DataProviderUtils.class)
-    public void loginTest(Map<String,String> data){
+//    @Test(dataProvider = "getData", dataProviderClass = DataProviderUtils.class)
+//    public void loginTest(Map<String,String> data){
+//        OrangeHRMLoginPage ohlp = new OrangeHRMLoginPage();
+//        System.out.println(data.get("username") + " | " + data.get("password"));
+//        OrangeHRMHomePage ohhp = ohlp.enterUserName(data.get("username")).enterPassword(data.get("password")).clickLogin();
+//       String title =  ohhp.clickWelcome().doLogout().getTitle();
+//
+//       Assertions.assertThat(title)
+//               .isEqualTo("OrangeHRM");
+//
+//    }
+//
+//    @Test(dataProvider = "getData",dataProviderClass = DataProviderUtils.class)
+//    public void newTest(Map<String,String> data){
+//        OrangeHRMLoginPage ohlp = new OrangeHRMLoginPage();
+//        OrangeHRMHomePage ohhp = ohlp.enterUserName(data.get("username")).enterPassword(data.get("password")).clickLogin();
+//        String title =  ohhp.clickWelcome().doLogout().getTitle();
+//
+//        Assertions.assertThat(title)
+//                .isEqualTo("OrangeHRM");
+//
+//    }
+
+    @Test(dataProvider = "LoginTestData")
+    public void newTest(String userName,String password){
         OrangeHRMLoginPage ohlp = new OrangeHRMLoginPage();
-        OrangeHRMHomePage ohhp = ohlp.enterUserName(data.get("username")).enterPassword(data.get("password")).clickLogin();
-       String title =  ohhp.clickWelcome().doLogout().getTitle();
-
-       Assertions.assertThat(title)
-               .isEqualTo("OrangeHRM");
-
-    }
-
-    @Test(dataProvider = "LoginTestData",dataProviderClass = DataProviderUtils.class)
-    public void newTest(Map<String,String> data){
-        OrangeHRMLoginPage ohlp = new OrangeHRMLoginPage();
-        OrangeHRMHomePage ohhp = ohlp.enterUserName(data.get("username")).enterPassword(data.get("password")).clickLogin();
+        OrangeHRMHomePage ohhp = ohlp.enterUserName(userName).enterPassword(password).clickLogin();
         String title =  ohhp.clickWelcome().doLogout().getTitle();
 
         Assertions.assertThat(title)
                 .isEqualTo("OrangeHRM");
 
     }
+
+
 
 
 
