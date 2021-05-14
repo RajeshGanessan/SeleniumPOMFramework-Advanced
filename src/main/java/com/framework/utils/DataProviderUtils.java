@@ -1,5 +1,6 @@
 package com.framework.utils;
 
+import com.framework.constants.AppConstants;
 import org.testng.annotations.DataProvider;
 
 import java.lang.reflect.Method;
@@ -15,19 +16,17 @@ public final class DataProviderUtils {
     public static Object[] getData(Method m){
         String methodName = m.getName();
         if(list.isEmpty()){
-            list = ExcelUtils.getTestDetails("Data");
+            list = ExcelUtils.getTestDetails(AppConstants.getIterationSheet());
         }
         List<Map<String,String>> filteredTests = new ArrayList<>();
 
         for(int i=0;i<list.size();i++){
 
-            if(list.get(i).get("testname").equalsIgnoreCase(methodName)){
-                if(list.get(i).get("execute").equalsIgnoreCase("yes")){
+            if(list.get(i).get("testname").equalsIgnoreCase(methodName) &&
+                    list.get(i).get("execute").equalsIgnoreCase("yes")){
                     filteredTests.add(list.get(i));
                 }
             }
-        }
-        list.removeAll(filteredTests);
         return filteredTests.toArray();
     }
 }

@@ -10,6 +10,8 @@ public class AppConstants {
     private static final String EXTENTREPORTFOLDERPATH = System.getProperty("user.dir") + "/extent-test-output/";
     private static  String extentreportfilepath ="";
     private static String TESTCONFIGPATH = System.getProperty("user.dir") + "/src/main/java/com/framework/TestData/testConfig.xlsx";
+    private static  String ITERATIONSHEET ="Data";
+    private static  String RUNMANAGERSHEET ="RunManager";
 
 
     public static String getEXTENTREPORTPATH() {
@@ -29,6 +31,14 @@ public class AppConstants {
 
     public static String getCHROMEDRIVERPATH() {
         return CHROMEDRIVERPATH;
+    }
+
+    public static String getIterationSheet() {
+        return ITERATIONSHEET;
+    }
+
+    public static String getRUNMANAGERSHEET() {
+        return RUNMANAGERSHEET;
     }
 
     public static String getTESTCONFIGPATH(){
