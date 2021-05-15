@@ -8,13 +8,16 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class baseTest {
 
 
     @BeforeMethod
-    protected void setUp() throws Exception {
-        Driver.initDriver();
+    protected void setUp(Object[] data ) throws Exception {
+        Map<String,String> details = (Map<String, String>)data[0];
+        Driver.initDriver(details.get("browser"));
     }
 
     @AfterMethod

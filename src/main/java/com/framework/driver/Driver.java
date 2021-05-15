@@ -5,6 +5,7 @@ import com.framework.utils.ReadProperty;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -12,12 +13,17 @@ import java.util.Objects;
 public class Driver {
 
 
-    public static void initDriver() throws Exception {
+    public static void initDriver(String browser) throws Exception {
 
         //checking whether the driver instance is null
         if(Objects.isNull(DriverManager.getDriver())) {
-            WebDriverManager.chromedriver().setup();
-            DriverManager.setDriver(new ChromeDriver());
+            if (browser.equalsIgnoreCase("chrome")) {
+                WebDriverManager.chromedriver().setup();
+                DriverManager.setDriver(new ChromeDriver());
+            } else if (browser.equalsIgnoreCase("firefox")) {
+                WebDriverManager.firefoxdriver().setup();
+                DriverManager.setDriver(new FirefoxDriver());
+            }
             DriverManager.getDriver().get(ReadProperty.get(ConfigProperties.URL));
         }
     }
