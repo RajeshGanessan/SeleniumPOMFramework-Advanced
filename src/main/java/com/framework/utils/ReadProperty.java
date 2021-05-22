@@ -16,7 +16,7 @@ public final class ReadProperty {
     private static Properties property = new Properties();
 
     static {
-        try (FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/Configs/config1.properties")){
+        try (FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/Configs/config.properties")){
             property.load(file);
         } catch (IOException e){
             e.printStackTrace();
