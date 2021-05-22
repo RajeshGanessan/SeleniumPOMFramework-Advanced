@@ -15,8 +15,7 @@ public final class ReadProperty {
     private static Properties property = new Properties();
 
     static {
-        try {
-            FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/Configs/config.properties");
+        try (FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/Configs/config.properties")){
             property.load(file);
         } catch (IOException e){
             e.printStackTrace();
@@ -24,7 +23,7 @@ public final class ReadProperty {
     }
     public static String get(ConfigProperties key) {
         if(Objects.isNull(property.getProperty(String.valueOf(key).toLowerCase()))){
-            throw new IllegalArgumentException("Property name = " + key + " is not found. Please check config.properties");
+            throw new RuntimeException("Property name = " + key + " is not found. Please check config.properties");
         }
         return property.getProperty(String.valueOf(key).toLowerCase());
     }

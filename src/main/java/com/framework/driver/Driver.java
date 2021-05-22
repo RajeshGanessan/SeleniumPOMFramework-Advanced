@@ -13,7 +13,7 @@ import java.util.Objects;
 public class Driver {
 
 
-    public static void initDriver(String browser) throws Exception {
+    public static void initDriver(String browser)  {
 
         //checking whether the driver instance is null
         if(Objects.isNull(DriverManager.getDriver())) {

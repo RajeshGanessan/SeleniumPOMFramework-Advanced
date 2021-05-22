@@ -1,7 +1,9 @@
 package com.framework.tests;
 
+import com.framework.CustomAnnotations.AppAnnotations;
 import com.framework.Pages.OrangeHRMHomePage;
 import com.framework.Pages.OrangeHRMLoginPage;
+import com.framework.enums.CategoryType;
 import com.framework.listeners.RetryFailedTests;
 import com.framework.report.ExtentReporter;
 import com.framework.utils.DataProviderUtils;
@@ -17,7 +19,7 @@ public class OrangeHRMTest extends baseTest {
     private OrangeHRMTest(){
 
     }
-
+    @AppAnnotations(author = "rajesh",category = {CategoryType.SMOKETEST, CategoryType.SANITYTEST})
     @Test
     public void loginTest(Map<String,String> data){
         OrangeHRMLoginPage ohlp = new OrangeHRMLoginPage();
@@ -30,6 +32,7 @@ public class OrangeHRMTest extends baseTest {
 
     }
 
+    @AppAnnotations(author = "Dinesh", category = {CategoryType.REGRESSIONTEST})
     @Test
     public void newTest(Map<String,String> data){
         OrangeHRMLoginPage ohlp = new OrangeHRMLoginPage();
@@ -51,10 +54,6 @@ public class OrangeHRMTest extends baseTest {
                 .isEqualTo("OrangeHRM");
 
     }
-
-
-
-
 
     @DataProvider(name="LoginTestData")
     public Object[][] getLoginData(){

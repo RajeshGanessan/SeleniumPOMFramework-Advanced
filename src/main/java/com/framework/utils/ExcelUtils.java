@@ -1,10 +1,10 @@
 package com.framework.utils;
 
 import com.framework.constants.AppConstants;
+import com.framework.exceptions.InvalidFilePathException;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -16,10 +16,9 @@ import java.util.Map;
 public class ExcelUtils {
 
     public static List<Map<String,String>> getTestDetails(String sheetName)  {
-        FileInputStream fs = null;
-        List<Map<String,String>> details =null;
-        try {
-            fs = new FileInputStream(AppConstants.getTESTCONFIGPATH());
+
+        List<Map<String,String>> details = null;
+        try(FileInputStream fs = new FileInputStream(AppConstants.getTESTCONFIGPATH())) {
             XSSFWorkbook workbook = new XSSFWorkbook(fs);
             XSSFSheet sheet = workbook.getSheet(sheetName);
 
@@ -37,15 +36,10 @@ public class ExcelUtils {
                 }
                 details.add(map);
             }
-        } catch (IOException e){
-            e.printStackTrace();
-        } finally {
-            try {
-                assert fs != null;
-                fs.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        } catch (FileNotFoundException e ){
+            throw new InvalidFilePathException("Excel file not found In location, check once");
+        } catch (IOException e) {
+            throw new InvalidFilePathException("NO excel file found, check once");
         }
         return details;
 

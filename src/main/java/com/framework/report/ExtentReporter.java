@@ -5,11 +5,15 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.framework.constants.AppConstants;
+import com.framework.enums.CategoryType;
+import com.framework.exceptions.InvalidFilePathException;
 import org.testng.annotations.Test;
 
 import java.awt.*;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class ExtentReporter  {
@@ -29,18 +33,30 @@ public class ExtentReporter  {
         }
     }
 
-    public static void flushReports() throws IOException {
+    public static void flushReports() {
         if(Objects.nonNull(extent)) {
             extent.flush();
         }
             ExtentManager.unload();
+        try {
             Desktop.getDesktop().browse(new File(AppConstants.getEXTENTREPORTPATH()).toURI());
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
     public static void createTest(String testcaseName){
         ExtentTest test  = extent.createTest(testcaseName);
         ExtentManager.setExtent(test);
+    }
+
+    public static void addAuthor(String author){
+        ExtentManager.getTest().assignAuthor(author);
+    }
+
+    public static void assignCategory(CategoryType[] category){
+        Arrays.asList(category).forEach(s -> ExtentManager.getTest().assignCategory(Arrays.toString(category)));
     }
 
 }

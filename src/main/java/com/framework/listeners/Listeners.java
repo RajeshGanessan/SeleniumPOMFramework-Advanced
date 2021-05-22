@@ -1,6 +1,9 @@
 package com.framework.listeners;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.framework.CustomAnnotations.AppAnnotations;
 import com.framework.report.ExtentLogger;
+import com.framework.report.ExtentManager;
 import com.framework.report.ExtentReporter;
 import org.testng.*;
 
@@ -15,16 +18,15 @@ public class Listeners implements ITestListener, ISuiteListener {
 
     @Override
     public void onFinish(ISuite suite) {
-        try {
             ExtentReporter.flushReports();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
     public void onTestStart(ITestResult result) {
         ExtentReporter.createTest(result.getMethod().getMethodName());
+        ExtentReporter.addAuthor(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(AppAnnotations.class).author());
+        ExtentReporter.assignCategory(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(AppAnnotations.class).category());
+
     }
 
     @Override

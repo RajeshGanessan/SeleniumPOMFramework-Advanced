@@ -9,9 +9,9 @@
     <classes>
       <class name="com.framework.tests.OrangeHRMTest">
         <methods>
-          <include name="newTest" invocation-numbers="0"/>
+          <include name="newTest"/>
           <include name="tearDown"/>
-          <include name="loginTest" invocation-numbers="1"/>
+          <include name="loginTest"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.framework.tests.OrangeHRMTest -->
