@@ -26,7 +26,7 @@ public class DriverFactory {
             if(runMode.equalsIgnoreCase("remote")){
                 DesiredCapabilities cap = new DesiredCapabilities();
                 cap.setBrowserName(BrowserType.CHROME);
-                driver = new RemoteWebDriver(new URL("http://localhost:4040/wd/hub"),cap);
+                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub/"),cap);
             } else {
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
@@ -35,7 +35,7 @@ public class DriverFactory {
             if(runMode.equalsIgnoreCase("remote")) {
                 DesiredCapabilities cap = new DesiredCapabilities();
                 cap.setBrowserName(BrowserType.FIREFOX);
-                driver = new RemoteWebDriver(new URL("http://localhost:4040/wd/hub"),cap);
+                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub/"),cap);
             } else {
                 WebDriverManager.firefoxdriver().setup();
                 DriverManager.setDriver(new FirefoxDriver());
