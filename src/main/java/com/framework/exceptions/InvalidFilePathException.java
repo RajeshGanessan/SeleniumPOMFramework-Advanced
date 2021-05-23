@@ -1,6 +1,6 @@
 package com.framework.exceptions;
 
-public class InvalidFilePathException extends RuntimeException{
+public class InvalidFilePathException extends CustomExceptions{
 
 
     public InvalidFilePathException(String message){

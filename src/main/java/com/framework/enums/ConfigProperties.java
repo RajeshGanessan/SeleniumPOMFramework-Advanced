@@ -7,5 +7,6 @@ public enum ConfigProperties {
     FAILEDTESTSSCREENSHOTS,
     SKIPPEDTESTSCREENSHOTS,
     RETRYFAILEDTESTS,
-    URL;
+    URL,
+    RUNMODE;
 }
