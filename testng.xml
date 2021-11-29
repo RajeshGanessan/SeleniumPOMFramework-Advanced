@@ -9,11 +9,10 @@
 <!--            <listener class-name="com.framework.listeners.methodInterceptor"/>-->
 <!--        <listener class-name="com.framework.practiceClinAdasses.MethodInterceptor"/>-->
     </listeners>
-    <test name="SeleniumAdvanceFramework" parallel="methods" thread-count="3" >
+    <test name="SeleniumAdvanceFramework" thread-count="3" >
         <classes>
 <!--            <class name="com.framework.practiceClasses.runner"/>-->
-<!--            <class name="com.framework.tests.LoginTest"/>-->
-<!--            <class name="com.framework.tests. HomePageTest"/>-->
+<!--            <class name="com.framework.tests.HomePageTest"/>-->
             <class name="com.framework.tests.OrangeHRMTest"/>
         </classes>
     </test>
